@@ -11,8 +11,8 @@ The Epicurious Platform is a full-stack application that allows users to search 
 
 ## Tech Stack
 
-- **Frontend**: React, Redux, Vite, Semantic UI
-- **Backend**: Flask, FastAPI
+- **Frontend**: React, Redux, Vite
+- **Backend**: Flask
 - **Database**: MongoDB
 
 ## Setup and Installation
