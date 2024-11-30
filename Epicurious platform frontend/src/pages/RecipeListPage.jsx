@@ -11,21 +11,22 @@ const RecipeListPage = () => {
     const [selectedRecipeId, setSelectedRecipeId] = useState(null); // Track which recipe's details are shown
 
     useEffect(() => {
-        const fetchRecipes = async () => {
-            const response = await fetch(`http://localhost:5000/search?query=${searchTerm.trim()}`);
-            if (!response.ok) {
-                console.error(`HTTP error! status: ${response.status}`);
-                return;
-            }
-            const data = await response.json();
-            console.log(data);
-            dispatch(setRecipes(data));
-        };
-
-        if (searchTerm) {
-            fetchRecipes();
+    const fetchRecipes = async () => {
+        const response = await fetch(`https://platform-33lgw1l7o-tharunpeddaboinas-projects.vercel.app/search?query=${searchTerm.trim()}`);
+        if (!response.ok) {
+            console.error(`HTTP error! status: ${response.status}`);
+            return;
         }
-    }, [dispatch, searchTerm]);
+        const data = await response.json();
+        console.log(data);
+        dispatch(setRecipes(data));
+    };
+
+    if (searchTerm) {
+        fetchRecipes();
+    }
+}, [dispatch, searchTerm]);
+
 
     useEffect(() => {
         dispatch(applyFilters());
